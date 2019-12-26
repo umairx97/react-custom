@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+// const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
     // 1
@@ -9,7 +10,7 @@ module.exports = {
             {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
-                use: ['babel-loader']
+                use: ['babel-loader', 'eslint-loader']
             }
         ]
     },
@@ -25,7 +26,8 @@ module.exports = {
     },
     
     plugins: [
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
+        // new HtmlWebpackPlugin()
     ],
 
     devServer: {
